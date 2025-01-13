@@ -149,6 +149,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/51d7d21338dd6446ebb64ecb940fb2b9.jpg" alt="vue3中 setup注意点"></p> <h2><a id="setupbeforeCreatethisundefined_2" rel="nofollow"></a>setup执行的时机：<strong>在beforeCreate之前</strong>执行一次，this是undefined。</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/e109070af736a563ff14cf9808464c0e.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/7f59997885b93f934e04df213fcf4a78.jpg" alt="vue3中 setup注意点"></p> <h2><a id="setup2_7" rel="nofollow"></a>setup参数（只能收到2个）：</h2> <p>1 props:值 为对象，包含：组件外部传递过来，且组件内部声明接收了的属性。<br /> 2 context：上下文对象。<br /> （1）attrs: 值为对象，包含：组件外部传递过来，但没有在props配置中声明的属性，相当于this. $attrs。<br /> （2）slots: 收到的插槽内容，相当于this. $slots。<br /> （3）emit: 分发自定义事件的函数，相当于 this. $emit。</p> <p>解析<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/3844f8754633a776a317e4193d15d92a.jpg" alt="vue3中 setup注意点"><br /> 注意的是setup接收参数的时候，必须有props接收声明，否则就会警告，跟vue2是不一样的。</p> <p>context是一个对象<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/faa46bf168d6417f50ed2b4fe79f7b4c.jpg" alt="vue3中 setup注意点"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/f9192d3f34b9a702ca29a4e4ec012d14.jpg" alt="vue3中 setup注意点"><br /> 传值事件上也是不一样的。<br /> 父组件App<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/0d67d234be16b3e7c763292cfc32627d.jpg" alt="vue3中 setup注意点"><br /> 子组件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/6588715fb22bb75972890375d9a55f4b.jpg" alt="vue3中 setup注意点"><br /> 插槽 建议直接用 v-slot: slot名<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/a2b5cd4237f07cbed5941c55d93b0123.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/937dc7080fa1eb73beefcb65ea1aec61.jpg" alt="vue3中 setup注意点"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/822697f7aac570a4ca74022abcc94395.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/92093f0ee63555a90ee8aeb4a01d13cc.jpg" alt="vue3中 setup注意点"></p> <p>vue3的生命周期钩子函数后边在说。</p> <p>我们在看一下<strong>vue2 的 知识点。</strong><br /><strong>插槽：</strong> slot可以给组件动态插入一些内容或组件，是实现高阶函数的重要途径，当需要多个插槽时，可使用具名插槽slot。<br /> 父子组件传值 props / this.$emit<br /><strong>父组件向子组件传值</strong>：在子组件标签上绑定自定义属性名(:child = ‘value’)，值是父组件要传递的数据，在子组件内部通过<strong>props</strong> 属性来接收 ‘自定义属性名’，页面在展示上，通过接收的 {<!-- -->{属性名}} 显示。（父子之间是上下传值）<br /><strong>子组件向父组件传值</strong>：在子组件标签上绑定自定义事件(@change= ‘change’)，子组件内部通过 $emit 给该事件推送数据<strong>(this. $emit</strong>(‘绑定的自定义事件名’,this.数据))。父组件内部通过“函数参数”接收。（子组件之间是平行传值）</p> <pre><code>&lt;fu&gt; 	&lt;zi :isdel=”fuvalue” @ziuser=”fudel”&gt;&lt;/zi&gt; 	Methods:{ 		Fudel(value){ Console.log(value) } 	} &lt;/fu&gt; &lt;zi @click=”user”&gt; 	props:{isdel:{对象形式}} 或者 props:[“isdel”] 	methods:{ 		User(){this.$emit(“ziuser”,’this.value’) } 	} &lt;/zi&gt;</code></pre> <h2><a id="vue2_58" rel="nofollow"></a>vue2生命周期钩子函数以及每个阶段的作用</h2> <p><strong>vue实例有一个完整的生命周期，生命周期也就是指一个实例从开始创建到销毁的这个过程;</strong><br /> 常用的</p> <pre><code>beforeCreate() 在实例创建之间执行，数据未加载状态/  created() 在实例创建、数据加载后，能初始化数据，dom渲染之前执行/  beforeMount() 虚拟dom已创建完成，在数据渲染前最后一次更改数据/  mounted() 页面、数据渲染完成，真实dom挂载完成/  beforeUpadate() 重新渲染之前触发/  updated() 数据已经更改完成，dom 也重新 render 完成,更改数据/  beforeDestory() 是销毁前执行（实例仍然完全可用）/  destoryed() 则是销毁后执行/  keep-alive 缓存。</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-39390.htm">关于tensor的shape理解</a></p>
+                                        <p>下一个：<a href="/news/article-39888.htm">PHP浮点数据类型详解</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -158,16 +159,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-37432.htm" title="国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）">国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）</a></li>
-                        <li class="py-2"><a href="/news/article-36443.htm" title="孕妇让猫抓破了流了一点点血要紧吗（孕妇让小猫抓破一点点表皮,没出血）">孕妇让猫抓破了流了一点点血要紧吗（孕妇让小猫抓破一点点表皮,没出血）</a></li>
-                        <li class="py-2"><a href="/news/article-36941.htm" title="我们如何从MySQL表中获取特定行作为输出？">我们如何从MySQL表中获取特定行作为输出？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="1月10日→18.8M/S|2025年最新免费节点Sscap4订阅链接地址">1月10日→18.8M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-38408.htm" title="宠物买卖纠纷找哪个部门协调呢（宠物买卖纠纷案例）">宠物买卖纠纷找哪个部门协调呢（宠物买卖纠纷案例）</a></li>
-                        <li class="py-2"><a href="/news/article-37906.htm" title="宠物领养管理系统代码查询（宠物领养官网）">宠物领养管理系统代码查询（宠物领养官网）</a></li>
-                        <li class="py-2"><a href="/news/article-37905.htm" title="redis持久化到mysql的方案_Redis持久化技术及方案选择">redis持久化到mysql的方案_Redis持久化技术及方案选择</a></li>
-                        <li class="py-2"><a href="/news/article-39391.htm" title="vue3中 setup注意点">vue3中 setup注意点</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="1月8日→18M/S|2025年最新免费节点Sscap4订阅链接地址">1月8日→18M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe.htm" title="1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址">1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-39390.htm" title="关于tensor的shape理解">关于tensor的shape理解</a></li>
+                        <li class="py-2"><a href="/news/article-37432.htm" title="国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）">国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-38408.htm" title="宠物买卖纠纷找哪个部门协调呢（宠物买卖纠纷案例）">宠物买卖纠纷找哪个部门协调呢（宠物买卖纠纷案例）</a></li>
+                        <li class="py-2"><a href="/news/article-36943.htm" title="木炭生产机器全套全自动价格（木炭生产机器 全套 全自动价格）">木炭生产机器全套全自动价格（木炭生产机器 全套 全自动价格）</a></li>
+                        <li class="py-2"><a href="/news/article-37906.htm" title="宠物领养管理系统代码查询（宠物领养官网）">宠物领养管理系统代码查询（宠物领养官网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-subscribe-node.htm" title="1月6日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址">1月6日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38900.htm" title="动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）">动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-35851.htm" title="异步复位同步释放在实际项目中的应用">异步复位同步释放在实际项目中的应用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-high-speed-nodes.htm" title="1月7日→21.9M/S|2025年最新免费节点Sscap4订阅链接地址">1月7日→21.9M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -179,7 +180,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
