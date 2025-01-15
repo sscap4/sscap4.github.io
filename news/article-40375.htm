@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://sscap4.github.io/news/article-39888.htm" />
+        <link rel="canonical" href="https://sscap4.github.io/news/article-40375.htm" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>PHP浮点数据类型详解</title>
-        <meta name="description" content="定义和用法 在PHP中，float数据类型表示任何数字，并带有小数部分。小数部分可以包含小数点后的数字，或者可以使用e或E以科学计数法表示。例如，科学计数法中的100是10e2。 浮点数的大小取决于硬" />
+    <title>C#中的多播委托和泛型委托_C#教程</title>
+        <meta name="description" content="多播委托 简介  每一个委托都是继承自MulticastDelegate，也就是每个都是多播委托。 带返回值的多播委托只返回最后一个方法的值 多播委托可以用加减号来操作方法的增加或者减少。 给委托传递" />
         <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
@@ -99,7 +99,7 @@
                                 <div class="container">
                                     <div class="row justify-content-center">
                                         <div class="col-xl-6 col-lg-7 col-sm-10">
-                                            <h1 class="carousel-title">PHP浮点数据类型详解</h1>
+                                            <h1 class="carousel-title">C#中的多播委托和泛型委托_C#教程</h1>
                                             <p class="carousel-desc">
                                                 <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
                                             </p>
@@ -146,10 +146,10 @@
             <div class="row">
                 <div class="col-md-9">
                                     <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
-                  				  				  				<h2>定义和用法</h2> <p>在PHP中，<strong>float</strong>数据类型表示任何数字，并带有小数部分。小数部分可以包含小数点后的数字，或者可以使用<strong>e</strong>或<strong>E</strong>以科学计数法表示。例如，科学计数法中的100是10e2。</p> <p>浮点数的大小取决于硬件/ OS平台，尽管通常会精确到小数点后14位。</p> <h2>语法</h2> <pre>//Literal&nbsp;assignment&nbsp;of&nbsp;float&nbsp;value&nbsp;to&nbsp;variable $var=5327.496;&nbsp;//&nbsp;standard&nbsp;notation $var1=5.327496e3;&nbsp;//&nbsp;Scientific&nbsp;notation $var2=5.327496E3;&nbsp;//Scientific&nbsp;notation $var3=5_327.496;&nbsp;//sepration&nbsp;symbol</pre> <p>为了更好的可读性，整数文字可以使用<strong>“ _”</strong>作为分隔符，PHP扫描程序在处理时将省略该分隔符。</p> <pre>$var=5_327.496;&nbsp;//&nbsp;it&nbsp;will&nbsp;treated&nbsp;as&nbsp;5327.496</pre> <h2>PHP版本</h2> <p>从PHP 7.40开始，可以使用分隔符号“ _”</p> <p>下面的示例以标准符号显示浮点文字表示形式。</p> <h2>示例</h2> <pre>&lt;?php $var=5327.496; echo&nbsp;$var&nbsp;.&nbsp;"\n"; ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>5327.496</pre> <p>本示例使用科学计数法</p> <h2>示例</h2> <pre>&lt;?php $var1=5.327496e3;&nbsp;&lt;br&nbsp;/&gt; echo&nbsp;$var&nbsp;.&nbsp;"\n";&lt;br&nbsp;/&gt;$var2=5.327496E3;&nbsp;&lt;br&nbsp;/&gt; echo&nbsp;$var&nbsp;.&nbsp;"\n"; ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>5327.496 5327.496</pre> <p>此示例使用分隔符号“ _”（将从PHP 7.40开始运行）</p> <h2>示例</h2> <pre>&lt;?php $var3=5_327.496; echo&nbsp;$var&nbsp;.&nbsp;"\n"; ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>5327.496</pre> <div></div> 			                <div class="clearfix"></div>
+                  				  				  				<h2>多播委托</h2> <h3>简介</h3> <ul> <li>每一个委托都是继承自MulticastDelegate，也就是每个都是多播委托。</li> <li>带返回值的多播委托只返回最后一个方法的值</li> <li>多播委托可以用加减号来操作方法的增加或者减少。</li> <li>给委托传递相同方法时 生成的委托实例也是相同的（也就是同一个委托）</li> </ul> <h3>代码实现</h3> <div class="ay1code"> <pre class="brush:csharp;"> 	//声明委托      delegate void MulticastTest();      public class MulticastDelegateTest      {                                  public void Show()          {              MulticastTest multicastTest = new MulticastTest(MethodTest);              multicastTest();                    Action action =new Action(MethodTest);              action = (Action)MulticastDelegate.Combine(action, new Action(MethodTest2));              action = (Action)MulticastDelegate.Combine(action, new Action(MethodTest3));              action = (Action)MulticastDelegate.Remove(action, new Action(MethodTest3));              action();                //等同于上面              action = MethodTest;              action += MethodTest2;              action += MethodTest3;              action -= MethodTest3;                foreach (Action action1 in action.GetInvocationList())              {                  action1();              }              Console.WriteLine("==========");              action();                                            Func&lt;string&gt; func = () =&gt; { return "我是Lambda"; };              func += () =&gt; { return "我是func1"; };              func += () =&gt; { return "我是func2"; };              func += GetTest;              func += GetTest; //给委托传递相同方法时 生成的委托实例也是相同的（也就是同一个委托）                            string result = func();              Console.WriteLine(result);              Console.WriteLine("==========");          }              #region 委托方法          public void MethodTest()          {              Console.WriteLine("我是方法MethodTest()1");          }            public void MethodTest2()          {              Console.WriteLine("我是方法MethodTest()2");          }            public void MethodTest3()          {              Console.WriteLine("我是方法MethodTest()3");          }            public string GetTest()          {              return "我是方法GetTest()";          }          #endregion      }</pre> </div> <h2>泛型委托</h2> <h3>代码实现</h3> <div class="ay1code"> <pre class="brush:csharp;">    //泛型委托声明      delegate void GenericDelegate&lt;T&gt;(T t);      public class GenericDelegate      {          public static void InvokeDelegate()          {              GenericDelegate&lt;string&gt; genericDelegate = new GenericDelegate&lt;string&gt;(Method1);              genericDelegate("我是泛型委托1");                //官方版本（不带返回值）              Action&lt;string&gt; action = new Action&lt;string&gt;(Method1);              action("我是泛型委托1");              //Action&lt;string, string, string, string, string, string, string, string, string, string, string, string, string, string, string, string&gt;                GenericDelegate&lt;int&gt; genericDelegate1 = new GenericDelegate&lt;int&gt;(Method2);              genericDelegate1(2);                //官方版本（带回值）              Func&lt;string, string&gt; func = new Func&lt;string, string&gt;(Method3);              string ret = func("我是带返回值Func委托");              Console.WriteLine( ret );              //Func&lt;string, string, string, string, string, string, string, string, string, string, string, string, string, string, string, string,string&gt;          }                #region 委托方法            public static void Method1(string str)          {              Console.WriteLine(str);          }            public static void Method2(int num)          {              Console.WriteLine("我是泛型委托2 "+num);          }            public static string Method3(string str )          {              return str;          }            #endregion      }</pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-39391.htm">vue3中 setup注意点</a></p>
-                                        <p>下一个：<a href="/news/article-39889.htm">宠物领养协议需要身份证复印件吗有效吗怎么写 领养宠物需要签协议吗</a></p>
+                                        <p>上一个：<a href="/news/article-39889.htm">宠物领养协议需要身份证复印件吗有效吗怎么写 领养宠物需要签协议吗</a></p>
+                                        <p>下一个：<a href="/news/article-40376.htm">动物医院一般几点关门的啊图片（动物医院上班）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -159,16 +159,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-subscribe-node.htm" title="1月15日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址">1月15日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="1月8日→18M/S|2025年最新免费节点Sscap4订阅链接地址">1月8日→18M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="1月10日→18.8M/S|2025年最新免费节点Sscap4订阅链接地址">1月10日→18.8M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36443.htm" title="孕妇让猫抓破了流了一点点血要紧吗（孕妇让小猫抓破一点点表皮,没出血）">孕妇让猫抓破了流了一点点血要紧吗（孕妇让小猫抓破一点点表皮,没出血）</a></li>
+                        <li class="py-2"><a href="/news/article-37432.htm" title="国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）">国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）</a></li>
                         <li class="py-2"><a href="/news/article-40375.htm" title="C#中的多播委托和泛型委托_C#教程">C#中的多播委托和泛型委托_C#教程</a></li>
-                        <li class="py-2"><a href="/news/article-37905.htm" title="redis持久化到mysql的方案_Redis持久化技术及方案选择">redis持久化到mysql的方案_Redis持久化技术及方案选择</a></li>
-                        <li class="py-2"><a href="/news/article-36312.htm" title="仓鼠脱毛露出红色的皮怎么治很瘦（仓鼠掉毛皮肤发红）">仓鼠脱毛露出红色的皮怎么治很瘦（仓鼠掉毛皮肤发红）</a></li>
-                        <li class="py-2"><a href="/news/article-39889.htm" title="宠物领养协议需要身份证复印件吗有效吗怎么写 领养宠物需要签协议吗">宠物领养协议需要身份证复印件吗有效吗怎么写 领养宠物需要签协议吗</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe-links.htm" title="1月11日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址">1月11日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-40869.htm" title="vue引用本地静态资源（图片、音频、视频）">vue引用本地静态资源（图片、音频、视频）</a></li>
-                        <li class="py-2"><a href="/news/article-37906.htm" title="宠物领养管理系统代码查询（宠物领养官网）">宠物领养管理系统代码查询（宠物领养官网）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日→18.4M/S|2025年最新免费节点Sscap4订阅链接地址">1月5日→18.4M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-high-speed-nodes.htm" title="1月7日→21.9M/S|2025年最新免费节点Sscap4订阅链接地址">1月7日→21.9M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40870.htm" title="动物疫苗管理法律法规最新版（动物疫苗的管理方法）">动物疫苗管理法律法规最新版（动物疫苗的管理方法）</a></li>
                         <li class="py-2"><a href="/news/article-39888.htm" title="PHP浮点数据类型详解">PHP浮点数据类型详解</a></li>
+                        <li class="py-2"><a href="/news/article-36442.htm" title="动物医院需要什么设备才能开发票的简单介绍">动物医院需要什么设备才能开发票的简单介绍</a></li>
+                        <li class="py-2"><a href="/news/article-36943.htm" title="木炭生产机器全套全自动价格（木炭生产机器 全套 全自动价格）">木炭生产机器全套全自动价格（木炭生产机器 全套 全自动价格）</a></li>
                     </ul>
     </div>
 </div>
