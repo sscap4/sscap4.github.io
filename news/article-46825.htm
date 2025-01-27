@@ -1,0 +1,262 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sscap4.github.io/news/article-46825.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue使用trim修饰符去掉空格</title>
+        <meta name="description" content="vue使用trim修饰符去掉空格  去掉input之类的输入框后面的空格，使用v-model.trim修饰符  &lt;input v-model.trim="value"&gt;&lt;/input" />
+        <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-46825.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="vue使用trim修饰符去掉空格" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/78f8cc467859bb824925996e6ef38fd1.webp" />
+        <meta property="og:release_date" content="2025-01-27T08:17:47" />
+    <meta property="og:updated_time" content="2025-01-27T08:17:47" />
+        <meta property="og:description" content="vue使用trim修饰符去掉空格  去掉input之类的输入框后面的空格，使用v-model.trim修饰符  &lt;input v-model.trim="value"&gt;&lt;/input" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue使用trim修饰符去掉空格">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/default.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4DY439HZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M4DY439HZT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-area">
+                <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                                <span>SSCap4</span>
+                                                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="slider-area">
+            <div class="bd-example">
+                <div id="carouselOne" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item bg_cover active" style="background-image: url(/assets/website/img/sscap4/slider-1.jpg)">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                            <h1 class="carousel-title">vue使用trim修饰符去掉空格</h1>
+                                            <p class="carousel-desc">
+                                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="/">SSCap4</a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-social d-flex align-items-center justify-content-center">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-right"></div>
+    <section id="portfolio" class="portfolio-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>vue使用trim修饰符去掉空格</h3> <p> 去掉input之类的输入框后面的空格，使用v-model.trim修饰符 </div> <pre><code>&lt;input v-model.trim="value"&gt;&lt;/input&gt; </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46327.htm">水育馆加盟店(水育馆加盟费多少)</a></p>
+                                        <p>下一个：<a href="/news/article-46826.htm">宠物粮批发平台排名（宠物粮进货平台）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="1月10日→18.8M/S|2025年最新免费节点Sscap4订阅链接地址">1月10日→18.8M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-high-speed-nodes.htm" title="1月14日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址">1月14日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="1月12日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址">1月12日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36312.htm" title="仓鼠脱毛露出红色的皮怎么治很瘦（仓鼠掉毛皮肤发红）">仓鼠脱毛露出红色的皮怎么治很瘦（仓鼠掉毛皮肤发红）</a></li>
+                        <li class="py-2"><a href="/news/article-44845.htm" title="java使用es中三种查询用法from size、search after、scroll">java使用es中三种查询用法from size、search after、scroll</a></li>
+                        <li class="py-2"><a href="/news/article-38900.htm" title="动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）">动物疫苗法律法规最新文件下载（动物疫苗法律法规最新文件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-37432.htm" title="国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）">国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-subscribe-node.htm" title="1月15日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址">1月15日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40375.htm" title="C#中的多播委托和泛型委托_C#教程">C#中的多播委托和泛型委托_C#教程</a></li>
+                        <li class="py-2"><a href="/news/article-42358.htm" title="Antd的Form.Item自定义类型输入框">Antd的Form.Item自定义类型输入框</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center text-lg-left mt-10">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">
+                                <a href="/">Sscap4免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="/assets/website/js/frontend/sscap4/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/slick.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
