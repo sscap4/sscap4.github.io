@@ -1,4 +1,4 @@
-# 1月27日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址  更新时间 2025-01-27 08:22:09
+# 1月31日→20.6M/S|2025年最新免费节点Sscap4订阅链接地址  更新时间 2025-01-31 07:21:43
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://sscap4.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://sscap4.github.io/uploads/2025/01/0-20250127.yaml
-- https://sscap4.github.io/uploads/2025/01/1-20250127.yaml
-- https://sscap4.github.io/uploads/2025/01/2-20250127.yaml
-- https://sscap4.github.io/uploads/2025/01/3-20250127.yaml
-- https://sscap4.github.io/uploads/2025/01/4-20250127.yaml
+- https://sscap4.github.io/uploads/2025/01/0-20250131.yaml
+- https://sscap4.github.io/uploads/2025/01/1-20250131.yaml
+- https://sscap4.github.io/uploads/2025/01/2-20250131.yaml
+- https://sscap4.github.io/uploads/2025/01/3-20250131.yaml
+- https://sscap4.github.io/uploads/2025/01/4-20250131.yaml
 
 ### V2ray订阅链接
 
-- https://sscap4.github.io/uploads/2025/01/0-20250127.txt
-- https://sscap4.github.io/uploads/2025/01/1-20250127.txt
-- https://sscap4.github.io/uploads/2025/01/2-20250127.txt
-- https://sscap4.github.io/uploads/2025/01/3-20250127.txt
-- https://sscap4.github.io/uploads/2025/01/4-20250127.txt
+- https://sscap4.github.io/uploads/2025/01/0-20250131.txt
+- https://sscap4.github.io/uploads/2025/01/1-20250131.txt
+- https://sscap4.github.io/uploads/2025/01/2-20250131.txt
+- https://sscap4.github.io/uploads/2025/01/3-20250131.txt
+- https://sscap4.github.io/uploads/2025/01/4-20250131.txt
 
 ### Sing-box订阅链接
 
-- https://sscap4.github.io/uploads/2025/01/20250127.json
+- https://sscap4.github.io/uploads/2025/01/20250131.json
 
 ## 更多clash节点订阅 ：
 
