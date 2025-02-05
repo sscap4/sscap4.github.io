@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://sscap4.github.io/news/article-35851.htm" />
@@ -9,6 +9,33 @@
     <title>异步复位同步释放在实际项目中的应用</title>
         <meta name="description" content="1 引言 最近看了“How do I reset my FPGA?”和一些时序分析的内容，发现之前ov5640图像采集项目中的几个问题： 问题1：用了全局时钟复位，全局复位一般具有高扇出（需要驱动的后" />
         <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-35851.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="异步复位同步释放在实际项目中的应用" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/4026b43623d937485d494e8dad47ff2b.webp" />
+        <meta property="og:release_date" content="2025-01-04T21:03:34" />
+    <meta property="og:updated_time" content="2025-01-04T21:03:34" />
+        <meta property="og:description" content="1 引言 最近看了“How do I reset my FPGA?”和一些时序分析的内容，发现之前ov5640图像采集项目中的几个问题： 问题1：用了全局时钟复位，全局复位一般具有高扇出（需要驱动的后" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="异步复位同步释放在实际项目中的应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
     <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
@@ -158,15 +185,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-36442.htm" title="动物医院需要什么设备才能开发票的简单介绍">动物医院需要什么设备才能开发票的简单介绍</a></li>
-                        <li class="py-2"><a href="/news/article-36313.htm" title="瑞鹏宠物医院收费价目表最新消息（瑞鹏宠物医院企查查）">瑞鹏宠物医院收费价目表最新消息（瑞鹏宠物医院企查查）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe.htm" title="1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址">1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-36312.htm" title="仓鼠脱毛露出红色的皮怎么治很瘦（仓鼠掉毛皮肤发红）">仓鼠脱毛露出红色的皮怎么治很瘦（仓鼠掉毛皮肤发红）</a></li>
-                        <li class="py-2"><a href="/news/article-35851.htm" title="异步复位同步释放在实际项目中的应用">异步复位同步释放在实际项目中的应用</a></li>
-                        <li class="py-2"><a href="/news/article-36443.htm" title="孕妇让猫抓破了流了一点点血要紧吗（孕妇让小猫抓破一点点表皮,没出血）">孕妇让猫抓破了流了一点点血要紧吗（孕妇让小猫抓破一点点表皮,没出血）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日→18.4M/S|2025年最新免费节点Sscap4订阅链接地址">1月5日→18.4M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-subscribe-node.htm" title="1月6日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址">1月6日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-35852.htm" title="动物疫苗价格排行榜前十名有哪些种类（动物疫苗的作用）">动物疫苗价格排行榜前十名有哪些种类（动物疫苗的作用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-node-share.htm" title="1月23日→20.8M/S|2025年最新免费节点Sscap4订阅链接地址">1月23日→20.8M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47794.htm" title="宠物粮生产基地大多在郊区吗 宠物粮生产基地大多在郊区吗为什么">宠物粮生产基地大多在郊区吗 宠物粮生产基地大多在郊区吗为什么</a></li>
+                        <li class="py-2"><a href="/news/article-44354.htm" title="PHP如何使用名称空间方法详解">PHP如何使用名称空间方法详解</a></li>
+                        <li class="py-2"><a href="/news/article-43370.htm" title="SpringBoot如何配置Druid数据源监控页面">SpringBoot如何配置Druid数据源监控页面</a></li>
+                        <li class="py-2"><a href="/news/article-43853.htm" title="上海宠物领养平台南平地址电话（上海宠物领养平台南平地址电话）">上海宠物领养平台南平地址电话（上海宠物领养平台南平地址电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-node-subscribe-links.htm" title="1月26日→21.8M/S|2025年最新免费节点Sscap4订阅链接地址">1月26日→21.8M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-node-share.htm" title="1月18日→20M/S|2025年最新免费节点Sscap4订阅链接地址">1月18日→20M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-node-subscribe.htm" title="1月24日→23M/S|2025年最新免费节点Sscap4订阅链接地址">1月24日→23M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48251.htm" title="动物防疫疫苗种类有哪些类型 动物防疫疫苗种类有哪些类型的">动物防疫疫苗种类有哪些类型 动物防疫疫苗种类有哪些类型的</a></li>
+                        <li class="py-2"><a href="/news/article-47795.htm" title="动物疫苗多长时间内打有效呢视频（动物疫苗的使用方法及注意事项）">动物疫苗多长时间内打有效呢视频（动物疫苗的使用方法及注意事项）</a></li>
                     </ul>
     </div>
 </div>
@@ -178,7 +206,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>

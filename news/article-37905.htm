@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://sscap4.github.io/news/article-37905.htm" />
@@ -9,6 +9,33 @@
     <title>redis持久化到mysql的方案_Redis持久化技术及方案选择</title>
         <meta name="description" content="一、Redis持久化概述 持久化的功能：Redis是内存数据库，数据都是存储在内存中，为了避免进程退出导致数据的永久丢失，需要定期将Redis中的数据以某种形式(数据或命令)从内存保存到硬盘；当下次R" />
         <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-37905.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="redis持久化到mysql的方案_Redis持久化技术及方案选择" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/6d1739beadea5d45bd3fd299c4c1dadd.webp" />
+        <meta property="og:release_date" content="2025-01-09T05:58:56" />
+    <meta property="og:updated_time" content="2025-01-09T05:58:56" />
+        <meta property="og:description" content="一、Redis持久化概述 持久化的功能：Redis是内存数据库，数据都是存储在内存中，为了避免进程退出导致数据的永久丢失，需要定期将Redis中的数据以某种形式(数据或命令)从内存保存到硬盘；当下次R" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="redis持久化到mysql的方案_Redis持久化技术及方案选择">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
     <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
@@ -159,16 +186,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-37905.htm" title="redis持久化到mysql的方案_Redis持久化技术及方案选择">redis持久化到mysql的方案_Redis持久化技术及方案选择</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="1月8日→18M/S|2025年最新免费节点Sscap4订阅链接地址">1月8日→18M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-35852.htm" title="动物疫苗价格排行榜前十名有哪些种类（动物疫苗的作用）">动物疫苗价格排行榜前十名有哪些种类（动物疫苗的作用）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-node-subscribe-links.htm" title="1月9日→19M/S|2025年最新免费节点Sscap4订阅链接地址">1月9日→19M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-37431.htm" title="宠物粮食品牌取名字大全（宠物粮食品牌取名字大全集）">宠物粮食品牌取名字大全（宠物粮食品牌取名字大全集）</a></li>
-                        <li class="py-2"><a href="/news/article-38408.htm" title="宠物买卖纠纷找哪个部门协调呢（宠物买卖纠纷案例）">宠物买卖纠纷找哪个部门协调呢（宠物买卖纠纷案例）</a></li>
-                        <li class="py-2"><a href="/news/article-36442.htm" title="动物医院需要什么设备才能开发票的简单介绍">动物医院需要什么设备才能开发票的简单介绍</a></li>
-                        <li class="py-2"><a href="/news/article-36313.htm" title="瑞鹏宠物医院收费价目表最新消息（瑞鹏宠物医院企查查）">瑞鹏宠物医院收费价目表最新消息（瑞鹏宠物医院企查查）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe.htm" title="1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址">1月4日→20.6M/S|2025年最新免费节点Sockscap64订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe-links.htm" title="1月11日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址">1月11日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48793.htm" title="欢颜剧情介绍,演员表,角色介绍,剧集评价(欢颜剧情介绍,演员表,角色介绍,剧集评价语)">欢颜剧情介绍,演员表,角色介绍,剧集评价(欢颜剧情介绍,演员表,角色介绍,剧集评价语)</a></li>
+                        <li class="py-2"><a href="/news/article-46825.htm" title="vue使用trim修饰符去掉空格">vue使用trim修饰符去掉空格</a></li>
+                        <li class="py-2"><a href="/news/article-39391.htm" title="vue3中 setup注意点">vue3中 setup注意点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-subscribe-node.htm" title="1月25日→18.2M/S|2025年最新免费节点Sscap4订阅链接地址">1月25日→18.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42359.htm" title="宠物粮食品牌上市公司排名前十 宠物粮食品牌上市公司排名前十名">宠物粮食品牌上市公司排名前十 宠物粮食品牌上市公司排名前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-node-share.htm" title="1月23日→20.8M/S|2025年最新免费节点Sscap4订阅链接地址">1月23日→20.8M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-node-share.htm" title="1月27日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址">1月27日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-subscribe-node.htm" title="1月22日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址">1月22日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48251.htm" title="动物防疫疫苗种类有哪些类型 动物防疫疫苗种类有哪些类型的">动物防疫疫苗种类有哪些类型 动物防疫疫苗种类有哪些类型的</a></li>
+                        <li class="py-2"><a href="/news/article-45342.htm" title="动物疫苗接种间隔多长时间打第二针疫苗（动物疫苗一针多少钱）">动物疫苗接种间隔多长时间打第二针疫苗（动物疫苗一针多少钱）</a></li>
                     </ul>
     </div>
 </div>
@@ -180,7 +207,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
