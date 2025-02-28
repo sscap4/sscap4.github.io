@@ -1,0 +1,263 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sscap4.github.io/news/article-63211.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>springboot post接口接受json时，转换为对象时，属性都为null</title>
+        <meta name="description" content="在接口请求过程中，传递json对象，springboot转换为实体VO对象后，所有属性都为null。 post请求： 后台接收请求： 当时就懵逼了…   查看springboot默认的HttpMess" />
+        <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-63211.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="springboot post接口接受json时，转换为对象时，属性都为null" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/a8f860d11b17bfa2ead042255e2d559e.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:33:34" />
+    <meta property="og:updated_time" content="2025-02-26T08:33:34" />
+        <meta property="og:description" content="在接口请求过程中，传递json对象，springboot转换为实体VO对象后，所有属性都为null。 post请求： 后台接收请求： 当时就懵逼了…   查看springboot默认的HttpMess" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot post接口接受json时，转换为对象时，属性都为null">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/default.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4DY439HZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M4DY439HZT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-area">
+                <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                                <span>Sscap4</span>
+                                                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="slider-area">
+            <div class="bd-example">
+                <div id="carouselOne" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item bg_cover active" style="background-image: url(/assets/website/img/sscap4/slider-1.jpg)">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                            <h1 class="carousel-title">springboot post接口接受json时，转换为对象时，属性都为null</h1>
+                                            <p class="carousel-desc">
+                                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="/">SSCap4</a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-social d-flex align-items-center justify-content-center">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-right"></div>
+    <section id="portfolio" class="portfolio-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>在接口请求过程中，传递json对象，springboot转换为实体VO对象后，所有属性都为null。</p> <p>post请求：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230217/906be7b7a573b39f3666d7a9db51040e.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"></p> <p>后台接收请求：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230217/05ddf2c0b90f32735d17f86db29e93d2.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"></p> <p>当时就懵逼了…</p> </h1> <h2> <a id="springbootHttpMessageConverter_14" rel="nofollow"></a>查看springboot默认的HttpMessageConverter</h2> <pre><code>@Configuration @Component public class AppWebConfiguration implements WebMvcConfigurer {  	/** 	 * 重写添加拦截器方法并添加配置拦截器 	 *  	 * @param registry 	 */ 	@Override 	public void addInterceptors(InterceptorRegistry registry) { 	}  	@Override 	public void extendMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters) { 		for (HttpMessageConverter&lt;?&gt; messageConverter : converters) { 			System.out.println(messageConverter);  		} 	}  } </code></pre> <p>默认的HttpMessageConverter如下：</p> <pre><code>org.springframework.http.converter.ByteArrayHttpMessageConverter@4ee488a7 org.springframework.http.converter.StringHttpMessageConverter@7c556701 org.springframework.http.converter.StringHttpMessageConverter@1650e1e1 org.springframework.http.converter.ResourceHttpMessageConverter@ffa6a44 org.springframework.http.converter.ResourceRegionHttpMessageConverter@65317aac org.springframework.http.converter.xml.SourceHttpMessageConverter@328b7464 org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@2345d43d org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@7f31325b org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter@113bd30b </code></pre> <p>所以解析jason时，用的转换器应该是MappingJackson2HttpMessageConverter。进入MappingJackson2HttpMessageConverter进行debug调试，发现，最后转换结果还真是null！<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230217/22e48516499729afa1af7041f55c91da.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"></p> <h2> <a id="objectMapper_55" rel="nofollow"></a>尝试直接用objectMapper转换对象看一下结果</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/db2115423176c8beb5c210dc38a712b6.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"><br /> 结果惊不惊喜，意不意外~。objectMapper把对象转为json时，属性变为<strong>下划线+小写</strong>风格了。<br /><strong>难怪对象的属性都为null，压根属性都不是同一个了</strong></p> <h2> <a id="jackson_60" rel="nofollow"></a>看看jackson配置能不能配置转换为驼峰</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/bf2c048cd54cb520e81c0ada59a14a40.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"><br /> 将命名策略修改为LOWER_CAMEL_CASE。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230217/b708831da249b856a64d07afd10f2ce3.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"><br /> 再看看转换结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230217/b5dca579b0c4fffe97e827e31d7b1191.jpg" alt="springboot post接口接受json时，转换为对象时，属性都为null"><br /> 成功转换为驼峰，对象属性也完美赋值！</p> <h2> <a id="springbootHttpMessageConverterFastJsonMappingJackson2HttpMessageConverter_71" rel="nofollow"></a>将springboot默认的HttpMessageConverter替换为阿里的FastJson转换器MappingJackson2HttpMessageConverter看看效果</h2> <pre><code>@Configuration public class FastJsonConfiguration {      @Bean     public HttpMessageConverters fastJsonHttpMessageConverters() {         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();         FastJsonConfig fastJsonConfig = new FastJsonConfig();          List&lt;MediaType&gt; fastMediaTypes = new ArrayList&lt;&gt;();          // 处理中文乱码问题         fastJsonConfig.setCharset(Charset.forName("UTF-8"));         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);         // 设置时间格式         fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");          fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);         fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);          // 在转换器中添加配置信息         fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);         HttpMessageConverter converter = fastJsonHttpMessageConverter;          StringHttpMessageConverter stringConverter = new StringHttpMessageConverter();         stringConverter.setDefaultCharset(Charset.forName("UTF-8"));         stringConverter.setSupportedMediaTypes(fastMediaTypes);          return new HttpMessageConverters(stringConverter, converter);     } } </code></pre> <h3> <a id="HttpMessageConverter_105" rel="nofollow"></a>再次查看HttpMessageConverter如下：</h3> <pre><code>com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter@15219255 org.springframework.http.converter.ByteArrayHttpMessageConverter@4ee488a7 org.springframework.http.converter.StringHttpMessageConverter@7c556701 org.springframework.http.converter.StringHttpMessageConverter@1650e1e1 org.springframework.http.converter.ResourceHttpMessageConverter@ffa6a44 org.springframework.http.converter.ResourceRegionHttpMessageConverter@65317aac org.springframework.http.converter.xml.SourceHttpMessageConverter@328b7464 org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@2345d43d org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@7f31325b org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter@113bd30b </code></pre> <p>发现FastJsonHttpMessageConverter已经在MappingJackson2HttpMessageConverter之前，springboot序列化会优先采用FastJsonHttpMessageConverter。<br /> 再次查看接口解析，发现直接转换到了对象属性中。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62616.htm">猫粮品牌大全推荐（猫粮品牌排行推荐）</a></p>
+                                        <p>下一个：<a href="/news/article-63212.htm">养猫攻略（新手如何养猫,养猫攻略）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-37432.htm" title="国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）">国内狗粮十大品牌排行榜（国内十大知名狗粮品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-58653.htm" title="领养宠物还可以要回来吗现在（领养宠物会有什么坑吗）">领养宠物还可以要回来吗现在（领养宠物会有什么坑吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-node-share.htm" title="2月6日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址">2月6日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45852.htm" title="SSM框架-SpringMVC详解">SSM框架-SpringMVC详解</a></li>
+                        <li class="py-2"><a href="/news/article-43371.htm" title="动物疫苗去哪买便宜（动物疫苗那里买）">动物疫苗去哪买便宜（动物疫苗那里买）</a></li>
+                        <li class="py-2"><a href="/news/article-41356.htm" title="动物医院实践心得500字内容怎么写（动物医院参观有感）">动物医院实践心得500字内容怎么写（动物医院参观有感）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe-links.htm" title="1月16日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址">1月16日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-subscribe-node.htm" title="1月15日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址">1月15日→21.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-57967.htm" title="学宠物医生报考哪个学校专科好一点（想学宠物医生应该报考什么大学）">学宠物医生报考哪个学校专科好一点（想学宠物医生应该报考什么大学）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-node-subscribe.htm" title="2月16日→20.3M/S|2025年最新免费节点Sscap4订阅链接地址">2月16日→20.3M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center text-lg-left mt-10">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">
+                                <a href="/">Sscap4免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="/assets/website/js/frontend/sscap4/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/slick.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
