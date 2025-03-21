@@ -1,0 +1,266 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sscap4.github.io/news/article-77492.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式</title>
+        <meta name="description" content="前段时间说到，由于Android和ios开发的小伙伴比较忙。我被拉来开发一个App。 今天记录一下， uni-app小程序怎么修改自定义组件样式  测试了h5和App端是可以的。小程序端没有测试 如果" />
+        <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-77492.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/a8f860d11b17bfa2ead042255e2d559e.webp" />
+        <meta property="og:release_date" content="2025-03-20T10:00:12" />
+    <meta property="og:updated_time" content="2025-03-20T10:00:12" />
+        <meta property="og:description" content="前段时间说到，由于Android和ios开发的小伙伴比较忙。我被拉来开发一个App。 今天记录一下， uni-app小程序怎么修改自定义组件样式  测试了h5和App端是可以的。小程序端没有测试 如果" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/default.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4DY439HZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M4DY439HZT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-area">
+                <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                                <span>Sscap4</span>
+                                                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="slider-area">
+            <div class="bd-example">
+                <div id="carouselOne" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item bg_cover active" style="background-image: url(/assets/website/img/sscap4/slider-1.jpg)">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                            <h1 class="carousel-title">uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式</h1>
+                                            <p class="carousel-desc">
+                                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="/">SSCap4</a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-social d-flex align-items-center justify-content-center">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-right"></div>
+    <section id="portfolio" class="portfolio-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>前段时间说到，由于Android和ios开发的小伙伴比较忙。我被拉来开发一个App。</p> <p>今天记录一下，</p> <h2>uni-app小程序怎么修改自定义组件样式</h2> <p><img fetchpriority="high" decoding="async" alt="" height="629" src="http://img.555519.xyz/uploads/20230218/145992a4e04166977a3147a0aaedbc6e.jpg"></p> <p>测试了h5和App端是可以的。小程序端没有测试</p> <p>如果使用过vue开发项目，可以知道，当&nbsp;<code>&lt;style&gt;</code>&nbsp;标签有&nbsp;<code>scoped</code>&nbsp;属性时，它的 CSS 只作用于当前组件中的元素。</p> <p>使用之后是这样的。</p> <pre><code class="language-css">&lt;style&gt; /* 全局样式 */ &lt;/style&gt;  &lt;style scoped&gt; /* 本地样式 */ &lt;/style&gt;</code></pre> <p>但是使用&nbsp;<code>scoped</code>&nbsp;后，父组件的样式将不会渗透到子组件中。</p> <p>如果你希望&nbsp;<code>scoped</code>&nbsp;样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用&nbsp;<code>&gt;&gt;&gt;</code>&nbsp;操作符：</p> <pre><code>&lt;style scoped&gt; .a &gt;&gt;&gt; .b { /* ... */ } &lt;/style&gt;  //会被解析成这个样子 .a[data-v-f3f3eg9] .b { /* ... */ }</code></pre> <p>有些像 Sass 之类的预处理器无法正确解析&nbsp;<code>&gt;&gt;&gt;</code>。这种情况下你可以使用&nbsp;<code>/deep/</code>&nbsp;或&nbsp;<code>::v-deep</code>&nbsp;操作符取而代之——两者都是&nbsp;<code>&gt;&gt;&gt;</code>&nbsp;的别名，同样可以正常工作。</p> <p>&nbsp;</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vue-loader.vuejs.org/zh/guide/scoped-css.html#%E6%B7%B1%E5%BA%A6%E4%BD%9C%E7%94%A8%E9%80%89%E6%8B%A9%E5%99%A8"  rel="nofollow">vue文档</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76805.htm">内江的宠物医院在哪里（内江宠物店有狗卖的在哪里,宠物市场地址）</a></p>
+                                        <p>下一个：<a href="/news/article-77493.htm">模板引擎Thymeleaf基本介绍和使用</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-high-speed-nodes.htm" title="3月5日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址">3月5日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-high-speed-nodes.htm" title="1月13日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址">1月13日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37431.htm" title="宠物粮食品牌取名字大全（宠物粮食品牌取名字大全集）">宠物粮食品牌取名字大全（宠物粮食品牌取名字大全集）</a></li>
+                        <li class="py-2"><a href="/news/article-40375.htm" title="C#中的多播委托和泛型委托_C#教程">C#中的多播委托和泛型委托_C#教程</a></li>
+                        <li class="py-2"><a href="/news/article-35851.htm" title="异步复位同步释放在实际项目中的应用">异步复位同步释放在实际项目中的应用</a></li>
+                        <li class="py-2"><a href="/news/article-68215.htm" title="宠物粮食加工设备厂家有哪些 宠物粮食加工设备厂家有哪些品牌">宠物粮食加工设备厂家有哪些 宠物粮食加工设备厂家有哪些品牌</a></li>
+                        <li class="py-2"><a href="/news/article-74110.htm" title="附近免费领养狗猫咪的地方 附近免费领养狗猫咪的地方在哪里">附近免费领养狗猫咪的地方 附近免费领养狗猫咪的地方在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-59112.htm" title="JDK7的try-with-resource方式的使用">JDK7的try-with-resource方式的使用</a></li>
+                        <li class="py-2"><a href="/news/article-75457.htm" title="动物疫苗供应站的职能（动物疫苗供应站的职能职责）">动物疫苗供应站的职能（动物疫苗供应站的职能职责）</a></li>
+                        <li class="py-2"><a href="/news/article-70789.htm" title="青岛最好的动物医院在哪里（青岛最好的动物医院在哪里啊）">青岛最好的动物医院在哪里（青岛最好的动物医院在哪里啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center text-lg-left mt-10">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">
+                                <a href="/">Sscap4免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="/assets/website/js/frontend/sscap4/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/slick.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
