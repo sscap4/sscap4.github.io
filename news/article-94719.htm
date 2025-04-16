@@ -1,0 +1,265 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sscap4.github.io/news/article-94719.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>C++内存泄漏的定位方法总结</title>
+        <meta name="description" content="一、内存泄漏检测工具Valgrind安装及使用   下载Valgrind工具源码： http://www.valgrind.org/downloads/valgrind-3.14.0.tar.bz2 " />
+        <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-94719.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="C++内存泄漏的定位方法总结" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/2272b9b5641d41a239e079373e531f7a.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:18:05" />
+    <meta property="og:updated_time" content="2025-04-13T07:18:05" />
+        <meta property="og:description" content="一、内存泄漏检测工具Valgrind安装及使用   下载Valgrind工具源码： http://www.valgrind.org/downloads/valgrind-3.14.0.tar.bz2 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++内存泄漏的定位方法总结">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/default.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4DY439HZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M4DY439HZT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-area">
+                <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                                <span>Sscap4</span>
+                                                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="slider-area">
+            <div class="bd-example">
+                <div id="carouselOne" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item bg_cover active" style="background-image: url(/assets/website/img/sscap4/slider-1.jpg)">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                            <h1 class="carousel-title">C++内存泄漏的定位方法总结</h1>
+                                            <p class="carousel-desc">
+                                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="/">SSCap4</a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-social d-flex align-items-center justify-content-center">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-right"></div>
+    <section id="portfolio" class="portfolio-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3>一、内存泄漏检测工具Valgrind安装及使用</h3> <ul> <li> <p>下载Valgrind工具源码：</p> <p>http://www.valgrind.org/downloads/valgrind-3.14.0.tar.bz2</p> </li> <li> <p>解压缩：</p> <p>tar -jxvf valgrind-3.14.0.tar.bz2</p> </li> <li> <p>进入安装后的目录进行安装：</p> <p>cd valgrind-3.14.0</p> <p>./configure --prefix=/home/NJR/valgrind</p> <p>make</p> <p>make install</p> </li> <li> <p>配置环境变量：</p> <p>vi /etc/profile</p> <p>最后一行加入：export PATH=$PATH:/home/NJR/valgrind/bin</p> <p>生效环境变量：source /etc/profile</p> </li> <li> <p>假设想要检测的执行文件是main,并且想把检测结果输入到文件valgrind_report.log中，就执行下面语句：</p> <p>valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --run-libc-freeres=yes --log-file=./valgrind_report.log ./test</p> <p>如果只想把结果打印到屏幕上，就执行下面语句</p> <p>valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --run-libc-freeres=yes ./test</p> </li> <li> <p>举例子：</p> <pre><code>#include &lt;iostream&gt;  void func(void) {     int *x = (int *)malloc(8 * sizeof(int));     x[9] = 0;              //数组下标越界 }                        //内存未释放    int main(void) {     func();      return 0; }</code></pre> </li> </ul> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 执行编译命令：&nbsp;</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gcc -Wall test.cpp -g -fno-inline -o test</p> <p>运行后的结果，可以看到</p> <pre><code>==56206== Memcheck, a memory error detector ==56206== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al. ==56206== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info ==56206== Command: ./test ==56206== Parent PID: 40069 ==56206==  ==56206== Invalid write of size 4 ==56206==    at 0x400514: getMemory() (test.cpp:6) ==56206==    by 0x400525: main (test.cpp:12) ==56206==  Address 0x5201064 is 4 bytes after a block of size 32 alloc'd ==56206==    at 0x4C2DE4D: malloc (vg_replace_malloc.c:299) ==56206==    by 0x400507: getMemory() (test.cpp:5) ==56206==    by 0x400525: main (test.cpp:12) ==56206==  ==56206==  ==56206== HEAP SUMMARY: ==56206==     in use at exit: 32 bytes in 1 blocks ==56206==   total heap usage: 1 allocs, 0 frees, 32 bytes allocated ==56206==  ==56206== 32 bytes in 1 blocks are definitely lost in loss record 1 of 1 ==56206==    at 0x4C2DE4D: malloc (vg_replace_malloc.c:299) ==56206==    by 0x400507: getMemory() (test.cpp:5) ==56206==    by 0x400525: main (test.cpp:12) ==56206==  ==56206== LEAK SUMMARY: ==56206==    definitely lost: 32 bytes in 1 blocks ==56206==    indirectly lost: 0 bytes in 0 blocks ==56206==      possibly lost: 0 bytes in 0 blocks ==56206==    still reachable: 0 bytes in 0 blocks ==56206==         suppressed: 0 bytes in 0 blocks ==56206==  ==56206== For counts of detected and suppressed errors, rerun with: -v ==56206== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)</code></pre> <h3>二、重载全局或局部类内operator new操作符和delete操作符</h3> <p>原理：</p> <p>1.定义一个全局的内存信息表，用来存储内存申请的文件名及位置</p> <p>2.重载operator new/new[]，保存内存申请信息</p> <p>3.重载operator delete/delete[]，删除内存申请信息</p> <p>4.定义一个全局/静态常量，在程序结束时，核查内存信息表是否还存在内存申请信息，如果存在则说明发生内存泄漏，否则无内存泄漏</p> <pre><code class="language-cpp">struct Info {     void *ptr;     const char *file_name;     long line; };  Info ptr_list[1024]; unsigned int ptr_num = 0;  int find_ptr(void *p) {     for (unsigned int i = 0; i &lt; ptr_num; ++i)     {         if (ptr_list[i].ptr == p)         {             return i;         }     }      return -1; }  void del_ptr(unsigned int i) {     while(i+1 &lt; ptr_num)     {         ptr_list[i] = ptr_list[i+1];         i++;     }      ptr_num--; }  struct ProcEnd {     ~ProcEnd()     {         for (unsigned int i = 0; i &lt; ptr_num; ++i)         {             printf("file: %s, line: %d, memory leak!!!\n", ptr_list[i].file_name, ptr_list[i].line);         }     } };  void* operator new(size_t size, const char *file_name, long line) {     printf("global new\n");     void *p = malloc(size);     ptr_list[ptr_num].ptr = p;     ptr_list[ptr_num].file_name = file_name;     ptr_list[ptr_num].line = line;     ptr_num++;     return p; }  void* operator new[](size_t size, const char *file_name, long line) {     return operator new(size, file_name, line); }  void operator delete(void *p) {     int i = find_ptr(p);     if (i != -1)     {         free(p);         del_ptr(i);     }     else     {         printf("delete unknown pointer!!!\n");     } }  void operator delete[](void *p) {     operator delete(p); }  ProcEnd end;  struct BTNode {     BTNode(char val) : val(val), left(nullptr), right(nullptr) {}      char val;     BTNode *left;     BTNode *right; };</code></pre> <p>检验输出结果：</p> <pre><code class="language-cpp">#include &lt;iostream&gt;  int main() {     int *i = new int(0);     return 0; }</code></pre> <p>控制台打印信息：</p> <p>global new<br /> file: ../src/TEST.cpp, line: 197, memory leak!!!</p> <p>可以看出发生了内存泄漏，并提示对应的文件名称和行号。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94718.htm">PHP Spotting参考详解</a></p>
+                                        <p>下一个：<a href="/news/article-95469.htm">宠物医生怎么考证（宠物医生怎么考证书）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-node-subscribe.htm" title="3月30日→18.1M/S|2025年最新免费节点Sscap4订阅链接地址">3月30日→18.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-75457.htm" title="动物疫苗供应站的职能（动物疫苗供应站的职能职责）">动物疫苗供应站的职能（动物疫苗供应站的职能职责）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-node-subscribe-links.htm" title="3月13日→21.4M/S|2025年最新免费节点Sscap4订阅链接地址">3月13日→21.4M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66942.htm" title="宠物食品加工厂手续怎么办理流程（宠物食品厂需要办什么手续）">宠物食品加工厂手续怎么办理流程（宠物食品厂需要办什么手续）</a></li>
+                        <li class="py-2"><a href="/news/article-81618.htm" title="pycharm 的虚拟环境【陷阱】，你中招了吗？_在线工具">pycharm 的虚拟环境【陷阱】，你中招了吗？_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share-links.htm" title="4月4日→20.4M/S|2025年最新免费节点Sscap4订阅链接地址">4月4日→20.4M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-node-share-links.htm" title="3月16日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址">3月16日→22.7M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share-links.htm" title="3月23日→22.5M/S|2025年最新免费节点Sscap4订阅链接地址">3月23日→22.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-node-share-links.htm" title="3月15日→18.5M/S|2025年最新免费节点Sscap4订阅链接地址">3月15日→18.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-node-subscribe.htm" title="4月15日→20.2M/S|2025年最新免费节点Sscap4订阅链接地址">4月15日→20.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center text-lg-left mt-10">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">
+                                <a href="/">Sscap4免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="/assets/website/js/frontend/sscap4/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/slick.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
