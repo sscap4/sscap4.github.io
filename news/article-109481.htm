@@ -1,0 +1,268 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sscap4.github.io/news/article-109481.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Docker镜像构建之docker commit</title>
+        <meta name="description" content="我们可以通过公共仓库拉取镜像使用，但是，有些时候公共仓库拉取的镜像并不符合我们的需求。尽管已经从繁琐的部署工作中解放出来了，但是在实际开发时，我们可能希望镜像包含整个项目的完整环境，在其他机器上拉取打" />
+        <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-109481.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="Docker镜像构建之docker commit" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/d753d2bdf2a803326ede73f9feb3ed17.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:22:24" />
+    <meta property="og:updated_time" content="2025-05-02T09:22:24" />
+        <meta property="og:description" content="我们可以通过公共仓库拉取镜像使用，但是，有些时候公共仓库拉取的镜像并不符合我们的需求。尽管已经从繁琐的部署工作中解放出来了，但是在实际开发时，我们可能希望镜像包含整个项目的完整环境，在其他机器上拉取打" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Docker镜像构建之docker commit">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/default.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4DY439HZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M4DY439HZT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-area">
+                <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                                <span>Sscap4</span>
+                                                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="slider-area">
+            <div class="bd-example">
+                <div id="carouselOne" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item bg_cover active" style="background-image: url(/assets/website/img/sscap4/slider-1.jpg)">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                            <h1 class="carousel-title">Docker镜像构建之docker commit</h1>
+                                            <p class="carousel-desc">
+                                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="/">SSCap4</a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-social d-flex align-items-center justify-content-center">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-right"></div>
+    <section id="portfolio" class="portfolio-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>我们可以通过公共仓库拉取镜像使用，但是，有些时候公共仓库拉取的镜像并不符合我们的需求。尽管已经从繁琐的部署工作中解放出来了，但是在实际开发时，我们可能希望镜像包含整个项目的完整环境，在其他机器上拉取打包完整的镜像，直接运行即可。</p> <p>		Docker 支持自己构建镜像，还支持将自己构建的镜像上传到公共仓库，镜像构建可以通过以下两种方式来实现：</p> <ul> <li><code>docker commit</code>：从容器创建一个新的镜像；</li> <li><code>docker huild</code>：配合 Dockerfile 文件创建镜像；</li> </ul> <blockquote> <p>示例：通过<code>docker commit</code> 来实现镜像的构建，通过基础镜像<code>centos:7</code>，将 jdk 和 Tomcat 安装在该镜像中制作成一个新的镜像。</p> </blockquote> </h1> <pre><code class="language-sh"># 拉取镜像 docker pull centos:7  # 创建容器 docker run -id --name centos7 centos:7</code></pre> </h1> <p>将宿主机的 jdk 和Tomcat 拷贝到容器</p> <pre><code class="language-sh">docker cp jdk-11.0.7_linux-x64_bin.tar.gz centos7:/root docker cp apache-tomcat-9.0.39.tar.gz centos7:/root</code></pre> </h1> <pre><code class="language-sh"># 进入容器 docker exec -it centos7 /bin/bash</code></pre> <p>在容器中执行以下操作：</p> <pre><code class="language-sh"># 切换到 /root 目录 cd root/  # 创建 Java 和 Tomcat 目录 mkdir -p /usr/local/java mkdir -p /usr/local/tomcat  # 将 jdk 和 Tomcat 解压到容器的 Java 和 Tomcat 目录中 tar -zxvf jdk-11.0.6_linux-x64_bin.tar.gz -C /usr/local/Java/ tar -zxvf apache-tomcat-9.0.39.tar.gz -C /usr/local/tomcat/  # 在环境变量文件中添加以下内容 export JAVA_HOME=/usr/local/java/jdk-11.0.6/ export PATH=$PATH:$JAVA_HOME/bin  # 重新加载环境变量文件 source /etc/profile  # 测试环境变量是否配置成功 [root@f1cd1a3df1ed etc]# java -version java version "11.0.7" 2020-04-14 LTS Java(TM) SE Runtime Environment 18.9 (build 11.0.7+8-LTS) Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.7+8-LTS, mixed mode)</code></pre> </h1> <pre><code class="language-sh">docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]  docker commit -a="xiaoyang" -m="jdk11 and tomcat" centos7 mycentos:7</code></pre> <ul> <li><code>-a</code>：提交的镜像作者；</li> <li><code>-c</code>：使用 Dockerfile 指令来创建镜像；</li> <li><code>-m</code>：提交时的说明文字；</li> <li><code>-p</code>：在 commit 时，将容器暂停；</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/06bb4065229a98af717c7976eb8bdcf5.jpg" alt="Docker镜像构建之docker commit"></p> </h1> <pre><code class="language-sh"># 创建容器 docker run -id --name mycentos7 -p 8080:8080 mycentos:7  # 进入容器 docker exec -it mycentos7 /bin/bash  # 重新加载配置文件 source /etc/profile  # 测试 Java 环境变量 [root@7ed6a969f63a /]# java -version java version "11.0.7" 2020-04-14 LTS Java(TM) SE Runtime Environment 18.9 (build 11.0.7+8-LTS) Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.7+8-LTS, mixed mode)  # 启动 Tomcat /usr//local/tomcat/apache-tomcat-9.0.39/bin/startup.sh</code></pre> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-108644.htm">动物医院运营管理工作内容怎么写（动物医院管理流程）</a></p>
+                                        <p>下一个：<a href="/news/article-109484.htm">动物医院办理条件是什么（动物医院手续）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-102866.htm" title="Python清理PC端微信产生的超大数据">Python清理PC端微信产生的超大数据</a></li>
+                        <li class="py-2"><a href="/news/article-91737.htm" title="动物接种疫苗前后注意事项（动物使用疫苗时应注意哪些事项）">动物接种疫苗前后注意事项（动物使用疫苗时应注意哪些事项）</a></li>
+                        <li class="py-2"><a href="/news/article-100659.htm" title="动物疫苗排名前十位是什么意思 动物疫苗排名前十位是什么意思啊">动物疫苗排名前十位是什么意思 动物疫苗排名前十位是什么意思啊</a></li>
+                        <li class="py-2"><a href="/news/article-94719.htm" title="C++内存泄漏的定位方法总结">C++内存泄漏的定位方法总结</a></li>
+                        <li class="py-2"><a href="/news/article-102078.htm" title="畜牧兽医站为什么不给狗看病 畜牧兽医站为什么不给狗看病呢">畜牧兽医站为什么不给狗看病 畜牧兽医站为什么不给狗看病呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-node-share-links.htm" title="4月6日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址">4月6日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-3-free-node-subscribe.htm" title="5月3日→20.7M/S|2025年最新免费节点Sscap4订阅链接地址">5月3日→20.7M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-87327.htm" title="宠物主粮生产加工工艺要点 宠物主粮生产加工工艺要点有哪些">宠物主粮生产加工工艺要点 宠物主粮生产加工工艺要点有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-89515.htm" title="动物疫苗品牌排行 动物疫苗品牌排行榜">动物疫苗品牌排行 动物疫苗品牌排行榜</a></li>
+                        <li class="py-2"><a href="/news/article-103662.htm" title="幼猫一定要跟人睡吗（幼猫一定要跟人睡吗为什么）">幼猫一定要跟人睡吗（幼猫一定要跟人睡吗为什么）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center text-lg-left mt-10">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">
+                                <a href="/">Sscap4免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="/assets/website/js/frontend/sscap4/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/slick.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

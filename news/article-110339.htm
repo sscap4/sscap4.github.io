@@ -1,0 +1,268 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sscap4.github.io/news/article-110339.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>STL之vector</title>
+        <meta name="description" content="目录 vector概念 vector的遍历 1、[ ]的重载 2、迭代器 3、范围for vector的模拟实现 成员变量 reserve函数与拷贝构造 增删函数 push_back pop_back" />
+        <link rel="icon" href="/assets/website/img/sscap4/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Sscap4免费机场节点分享官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sscap4.github.io/news/article-110339.htm" />
+    <meta property="og:site_name" content="Sscap4免费机场节点分享官网" />
+    <meta property="og:title" content="STL之vector" />
+    <meta property="og:image" content="https://sscap4.github.io/uploads/20250104/d753d2bdf2a803326ede73f9feb3ed17.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:07" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:07" />
+        <meta property="og:description" content="目录 vector概念 vector的遍历 1、[ ]的重载 2、迭代器 3、范围for vector的模拟实现 成员变量 reserve函数与拷贝构造 增删函数 push_back pop_back" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="STL之vector">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sscap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/LineIcons.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/default.css">
+    <link rel="stylesheet" href="/assets/website/css/sscap4/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4DY439HZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M4DY439HZT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header-area">
+                <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                                <span>Sscap4</span>
+                                                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="slider-area">
+            <div class="bd-example">
+                <div id="carouselOne" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item bg_cover active" style="background-image: url(/assets/website/img/sscap4/slider-1.jpg)">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-6 col-lg-7 col-sm-10">
+                                            <h1 class="carousel-title">STL之vector</h1>
+                                            <p class="carousel-desc">
+                                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="/">SSCap4</a>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-social d-flex align-items-center justify-content-center">
+                <span>FOLLOW US</span>
+                <ul>
+                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-right"></div>
+    <section id="portfolio" class="portfolio-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="vector%E6%A6%82%E5%BF%B5-toc" style="margin-left:40px;">vector概念</p> <p id="vector%E7%9A%84%E9%81%8D%E5%8E%86-toc" style="margin-left:40px;">vector的遍历</p> <p id="1%E3%80%81%5B%20%5D%E7%9A%84%E9%87%8D%E8%BD%BD-toc" style="margin-left:80px;">1、[ ]的重载</p> <p id="2%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8-toc" style="margin-left:80px;">2、迭代器</p> <p id="3%E3%80%81%E8%8C%83%E5%9B%B4for-toc" style="margin-left:80px;">3、范围for</p> <p id="vector%E7%9A%84%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0-toc" style="margin-left:0px;">vector的模拟实现</p> <p id="%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F-toc" style="margin-left:40px;">成员变量</p> <p id="reserve%E5%87%BD%E6%95%B0%E4%B8%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0-toc" style="margin-left:40px;">reserve函数与拷贝构造</p> <p id="%E5%A2%9E%E5%88%A0%E5%87%BD%E6%95%B0-toc" style="margin-left:40px;">增删函数</p> <p id="push_back-toc" style="margin-left:80px;">push_back</p> <p id="pop_back-toc" style="margin-left:80px;">pop_back</p> <p id="%E8%BF%AD%E4%BB%A3%E5%99%A8-toc" style="margin-left:40px;">迭代器</p> <p id="%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD-toc" style="margin-left:40px;">运算符重载</p> <p id="%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6-toc" style="margin-left:80px;">赋值运算符</p> <p id="%5B%20%5D%E8%BF%90%E7%AE%97%E7%AC%A6-toc" style="margin-left:80px;">[ ]运算符</p> <p id="%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0-toc" style="margin-left:40px;">其他函数</p> <hr id="hr-toc"/> <p><img fetchpriority="high" decoding="async" alt="" height="203" src="http://img.555519.xyz/uploads3/20220722/b7efec10cd0fae79ce979dc3164d418a.jpg"></p> <h2 id="vector%E6%A6%82%E5%BF%B5">vector概念</h2> <p style="margin-left:0;">1、vector是表示<strong>可变大小数组</strong>的序列容器。</p> <p style="margin-left:0;">2、就像数组一样，vector也采用的连续存储空间来存储元素。也就是意味着可以采用下标对vector的元素进行访问，和数组一样高效。但是又不像数组，它的大小是可以动态改变的，而且它的大小会被容器自动处理。</p> <p style="margin-left:0;">3、本质讲，vector使用动态分配数组来存储它的元素。</p> <p style="margin-left:0px;text-align:justify;">4、vector分配空间策略：vector会分配一些额外的空间以适应可能的增长，因为<strong>存储空间比实际需要的存储空间更大</strong>。不同的库采用不同的策略权衡空间的使用和重新分配。但是无论如何，重新分配都应该是对数增长的间隔大小，以至于在末尾插入一个元素的时候是在常数时间的复杂度完成的。</p> <h2 id="vector%E7%9A%84%E9%81%8D%E5%8E%86">vector的遍历</h2> <pre><code class="language-cpp">vector&lt;int&gt; v; v.push_back(1); v.push_back(2); v.push_back(3); v.push_back(4);</code></pre> <h3 id="1%E3%80%81%5B%20%5D%E7%9A%84%E9%87%8D%E8%BD%BD">1、[ ]的重载</h3> <pre><code class="language-cpp">for (size_t i = 0; i &lt; v.size(); i++) { 	cout &lt;&lt; v[i] &lt;&lt; " "; }</code></pre> <h3 id="2%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8">2、迭代器</h3> <pre><code class="language-cpp">vector&lt;int&gt;::iterator it = v.begin(); while (it != v.end()) { 	cout &lt;&lt; *it &lt;&lt; " "; 	it++; } cout &lt;&lt; endl;</code></pre> <h3 id="3%E3%80%81%E8%8C%83%E5%9B%B4for">3、范围for</h3> <pre><code class="language-cpp">for (auto&amp; e : v) 	cout &lt;&lt; e; cout &lt;&lt; endl;</code></pre> </h1> <p>vector是一个类模板，参考stl3.0的写法</p> <h2 id="%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F">成员变量</h2> <p>库里面的写法</p> <p><img decoding="async" alt="" height="54" src="http://img.555519.xyz/uploads3/20220722/407b794e1e52de225bf765a0104d4b81.jpg"></p> <p>&nbsp;这里的iterator是被typdef了一下</p> <p><img decoding="async" alt="" height="205" src="http://img.555519.xyz/uploads3/20220722/3f0c0a3347089a86ec7bc9582dd4ade8.jpg"></p> <p>所以他的类型是 T*。传入int 就为int*，传入string就为string*。</p> <p>start用来标注数组的起点，finish用来标注数组有效长度的尾部，endofstorage标注数组的尾部。</p> <p>所以基本上的框架就是下面这样</p> <p><img loading="lazy" decoding="async" alt="" height="296" src="http://img.555519.xyz/uploads3/20220722/1ecdced8c79a03bc5ed15815e0be5bf4.jpg"></p> <pre><code class="language-cpp">template&lt;class T&gt; class myvector { public:     typedef T* iterator;     //--------构造函数---------     myvector() 	    :_start(nullptr) 	    ,_finish(nullptr) 	    ,_endofstorage(nullptr)     {}     ~myvector()     { 	    delete[] _start; 	    _start = nullptr; 	    _finish = nullptr; 	    _endofstorage = nullptr;     }  private: 	iterator _start; 	iterator _finish; 	iterator _endofstorage; };</code></pre> <h2 id="reserve%E5%87%BD%E6%95%B0%E4%B8%8E%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0">reserve函数与拷贝构造</h2> <p>先谈谈reserve函数，因为插入元素首先是增容问题，自我感觉也是这个类的核心。</p> <p>先看一下下面的代码</p> <pre><code class="language-cpp">void reserve(size_t cap) { 	if (cap &gt; capacity()) 	{ 		size_t len = size(); 		T* tmp = new T[cap]; 		if (_start)//防止为空的时候增容 		{ 			memcpy(tmp, _start, len * sizeof(T));//拷贝 			delete[] _start;//释放原来的空间 		} 		_start = tmp; 		_finish = _start + len; 		_endofstorage = _start + cap; 	} }</code></pre> <p>当大于实际容量时，才增容，否则不增容。增容的逻辑就是开辟一块新容量的空间，将之前的内容拷贝过来（如果没有之前相等），然后更改对应的三个指针。</p> <p>上面的代码表面看着没什么问题，其实存在一个很严重的bug，那就是<strong>浅拷贝。</strong></p> <p style="text-align:justify;">memcpy 将_start内容拷贝到tmp里面，如果是基本类型的数据，还不会出bug，如果是自定义类型，就有可能会出错。例如string类型，string类型里面有一个char*类型的指针，该指针指向了一块堆上的空间，如果只是单独的把_start的内容拷贝给tmp中，则一旦释放掉_start，会调用string的析构函数，则tmp里面的内容都被析构了，代码会崩溃。</p> <p style="text-align:justify;">正确的方法</p> <pre><code class="language-cpp">void reserve(size_t cap) { 	if (cap &gt; capacity()) 	{ 		size_t len = size(); 		T* tmp = new T[cap]; 		if (_start) 		{ 			for (size_t i = 0; i &lt; len; i++) 			{ 				tmp[i] = _start[i];//调用类型T自带的赋值完成深拷贝 			} 			delete[] _start; 		} 		_start = tmp; 		_finish = _start + len; 		_endofstorage = _start + cap; 	}</code></pre> <p><strong>拷贝构造</strong></p> <pre><code class="language-cpp">myvector(const myvector&lt;T&gt;&amp; v)//深拷贝     :_start(nullptr)     ,_finish(nullptr)     ,_endofstorage(nullptr) { 	reserve(v.capacity()); 	for (size_t i = 0; i &lt; v.size(); i++) 	{ 		*_finish = v[i]; 		_finish++; 	} }</code></pre> <h2 id="%E5%A2%9E%E5%88%A0%E5%87%BD%E6%95%B0">增删函数</h2> <h3 id="push_back">push_back</h3> <p>尾插，如果_finish == endofstorage，则需要增容，注意刚开始为为空时的情况。</p> <pre><code class="language-cpp">void push_back(const T&amp; x) { 	if (_finish == _endofstorage) 	{ 		size_t newcapacity = capacity() == 0 ? 2 : capacity() * 2; 		reserve(newcapacity); 	} 	*_finish = x; 	_finish++; }</code></pre> <h3 id="pop_back">pop_back</h3> <p>尾删，在入口处判断是否合法，即_start&lt;_finish。</p> <pre><code class="language-cpp">void pop_back() { 	assert(_start &lt; _finish);//首先得判断是否为空数组 	_finish--; }</code></pre> <h2 id="%E8%BF%AD%E4%BB%A3%E5%99%A8">迭代器</h2> <p>vector的迭代器也比较简单，和string的类似。</p> <pre><code class="language-cpp">iterator begin() { 	return _start; } iterator end() { 	return _finish; } const_iterator begin() const//const迭代器 typedef const T* const_iterator; { 	return _start; } const_iterator end() const { 	return _finish; }</code></pre> <h2 id="%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD">运算符重载</h2> <h3 id="%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">赋值运算符</h3> <pre><code class="language-cpp">const myvector&lt;T&gt;&amp; operator=(const myvector&lt;T&gt;&amp; v) { 	delete[] _start; 	_start = nullptr; 	_finish = nullptr; 	_endofstorage = nullptr;//先清除之前的内容，然后记得置空，不然重新开辟空间会出错 	reserve(v.capacity()); 	for (size_t i = 0; i &lt; v.size(); i++) 	{ 		*_finish = v[i]; 		_finish++; 	} 	return *this; }</code></pre> <p>现代写法思路一样，用swap函数，利用临时对象的特性，交换空间</p> <pre><code class="language-cpp">void swap(myvector&lt;T&gt;&amp; v) { 	std::swap(_start, v._start); 	std::swap(_finish, v._finish); 	std::swap(_endofstorage, v._endofstorage); }  myvector&lt;T&gt;&amp; operator=(myvector&lt;T&gt; v) { 	swap(v); 	return *this; }</code></pre> <h3 id="%5B%20%5D%E8%BF%90%E7%AE%97%E7%AC%A6">[ ]运算符</h3> <pre><code class="language-cpp">T&amp; operator[](size_t i) { 	assert(i &lt; size()); 	return _start[i]; } const T&amp; operator[](size_t i)const { 	assert(i &lt; size()); 	return _start[i]; }</code></pre> <h2 id="%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0">其他函数</h2> <pre><code class="language-cpp">size_t size()const//获取大小 { 	return _finish - _start; } size_t capacity()const//获取容量 { 	return _endofstorage - _start; } void resize(size_t n, const T&amp; val = T())//修改size的大小，分情况 { 	if (n &lt; size()) 	{ 		_finish -= size()-n; 	} 	else  	{	 		if (n &gt; capacity()) 		{ 			reserve(n); 		} 		size_t tmp = n - size(); 		while (tmp) 		{ 			*_finish = val; 			_finish++; 			tmp--; 		} 	} }</code></pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109484.htm">动物医院办理条件是什么（动物医院手续）</a></p>
+                                        <p>下一个：<a href="/news/article-110340.htm">附近免费领养狗边牧（附近免费领养狗边牧的地方）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-108644.htm" title="动物医院运营管理工作内容怎么写（动物医院管理流程）">动物医院运营管理工作内容怎么写（动物医院管理流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-node-subscribe.htm" title="4月2日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址">4月2日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-100659.htm" title="动物疫苗排名前十位是什么意思 动物疫苗排名前十位是什么意思啊">动物疫苗排名前十位是什么意思 动物疫苗排名前十位是什么意思啊</a></li>
+                        <li class="py-2"><a href="/news/article-99930.htm" title="昆明什么地方可以领养狗狗（昆明在哪里可以领养狗）">昆明什么地方可以领养狗狗（昆明在哪里可以领养狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-1-free-node-subscribe-links.htm" title="5月1日→20.2M/S|2025年最新免费节点Sscap4订阅链接地址">5月1日→20.2M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-high-speed-nodes.htm" title="4月9日→20.7M/S|2025年最新免费节点Sscap4订阅链接地址">4月9日→20.7M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-106117.htm" title="JDK7的try-with-resource方式的使用">JDK7的try-with-resource方式的使用</a></li>
+                        <li class="py-2"><a href="/news/article-105287.htm" title="猫轻微抓伤有一点渗血要***吗多少钱（猫咪抓伤渗血）">猫轻微抓伤有一点渗血要***吗多少钱（猫咪抓伤渗血）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-29-free-high-speed-nodes.htm" title="4月29日→19.3M/S|2025年最新免费节点Sscap4订阅链接地址">4月29日→19.3M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-107047.htm" title="猫咪三针疫苗间隔必须按规定时间吗（猫咪三针疫苗间隔必须按规定时间吗多久）">猫咪三针疫苗间隔必须按规定时间吗（猫咪三针疫苗间隔必须按规定时间吗多久）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center text-lg-left mt-10">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">
+                                <a href="/">Sscap4免费机场节点分享官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="/assets/website/js/frontend/sscap4/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/slick.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sscap4/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
