@@ -208,6 +208,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         管理员可在 Hiddify Next 面板为每个用户设置流量上限或带宽限制。超过配额后可自动阻止或降速，保证服务器资源合理分配，防止单用户占用过多带宽。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 的广告屏蔽原理是什么？</h5></div>
+    <div class="panel-body">
+        QuantumultX 使用分流规则与脚本结合的方式实现广告屏蔽。通过重写 HTTP 请求和阻止特定域名，它能有效去除 App 内广告或网页弹窗，提升浏览体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的规则代理与全局代理如何选择？</h5></div>
+    <div class="panel-body">
+        全局代理会将所有流量通过节点转发，而规则代理只针对指定 IP、端口或应用。用户可根据需求选择，以优化带宽利用和流量分流，确保不同应用的最佳体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 配置 TLS+WebSocket 有哪些性能优势？</h5></div>
     <div class="panel-body">
         TLS+WebSocket 可伪装 HTTPS 流量，增强抗封锁能力，同时降低被封检测风险。结合策略组和节点延迟检测，可保证访问速度和连接稳定性，适合视频和游戏场景。<hr />    </div>
@@ -218,14 +228,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Surfboard 基于 Clash 核心，因此支持大部分 YAML 配置文件，但部分字段如 rule-provider、external-controller 等可能不兼容。建议使用订阅转换工具将 Clash 文件转换为 Surfboard 兼容格式导入。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议插件如何增强连接稳定性？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的策略组如何根据延迟自动选择节点？</h5></div>
     <div class="panel-body">
-        SSR 的协议插件可以增加流量的伪装特性，模拟常见协议或浏览器行为，从而降低被识别和封锁的风险。这对不稳定网络或高封锁环境尤其有帮助。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的广告屏蔽原理是什么？</h5></div>
-    <div class="panel-body">
-        QuantumultX 使用分流规则与脚本结合的方式实现广告屏蔽。通过重写 HTTP 请求和阻止特定域名，它能有效去除 App 内广告或网页弹窗，提升浏览体验。<hr />    </div>
+        策略组可通过节点延迟测试结果自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 协议的动态端口功能是什么？</h5></div>
@@ -238,19 +243,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         可以。Netch 支持启用局域网共享功能，使同一网络下的其他设备通过主机的代理访问外网。需确保防火墙允许入站连接，且代理端口在局域网中开放。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的规则代理与全局代理如何选择？</h5></div>
-    <div class="panel-body">
-        全局代理会将所有流量通过节点转发，而规则代理只针对指定 IP、端口或应用。用户可根据需求选择，以优化带宽利用和流量分流，确保不同应用的最佳体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
     <div class="panel-body">
         Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的策略组如何根据延迟自动选择节点？</h5></div>
+    <div class="panel-heading"><h5>SSR 的协议插件如何增强连接稳定性？</h5></div>
     <div class="panel-body">
-        策略组可通过节点延迟测试结果自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。    </div>
+        SSR 的协议插件可以增加流量的伪装特性，模拟常见协议或浏览器行为，从而降低被识别和封锁的风险。这对不稳定网络或高封锁环境尤其有帮助。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -279,16 +279,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-node-share-links.htm" title="3月16日→18.5M/S|2025年最新免费节点Sscap4订阅链接地址">3月16日→18.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-15-free-node-subscribe.htm" title="2月15日→18.5M/S|2025年最新免费节点Sscap4订阅链接地址">2月15日→18.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-18-free-node-subscribe-links.htm" title="3月18日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址">3月18日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-24-free-subscribe-node.htm" title="1月24日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址">1月24日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-1-node-share-links.htm" title="3月1日→22.4M/S|2025年最新免费节点Sscap4订阅链接地址">3月1日→22.4M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-8-free-node-subscribe-links.htm" title="3月8日→20M/S|2025年最新免费节点Sscap4订阅链接地址">3月8日→20M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-15-free-node-subscribe-links.htm" title="3月15日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址">3月15日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-21-node-share.htm" title="3月21日→22M/S|2025年最新免费节点Sscap4订阅链接地址">3月21日→22M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-3-free-node-subscribe.htm" title="3月3日→19.5M/S|2025年最新免费节点Sscap4订阅链接地址">3月3日→19.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-1-free-high-speed-nodes.htm" title="2月1日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址">2月1日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-26-free-node-subscribe-links.htm" title="2月26日→22.3M/S|2025年最新免费节点Sscap4订阅链接地址">2月26日→22.3M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-7-node-share-links.htm" title="2月7日→22.9M/S|2025年最新免费节点Sscap4订阅链接地址">2月7日→22.9M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-28-node-share-links.htm" title="3月28日→22.9M/S|2025年最新免费节点Sscap4订阅链接地址">3月28日→22.9M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-11-free-node-subscribe.htm" title="3月11日→21.9M/S|2025年最新免费节点Sscap4订阅链接地址">3月11日→21.9M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-7-node-share-links.htm" title="3月7日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址">3月7日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-20-free-node-subscribe.htm" title="3月20日→18M/S|2025年最新免费节点Sscap4订阅链接地址">3月20日→18M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-23-free-node-subscribe.htm" title="3月23日→22.3M/S|2025年最新免费节点Sscap4订阅链接地址">3月23日→22.3M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-4-node-share.htm" title="3月4日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址">3月4日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-10-node-share.htm" title="3月10日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址">3月10日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -300,13 +300,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
             </li>
                     </ul>
     </div>
