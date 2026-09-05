@@ -334,14 +334,9 @@ A4：确保下载来源官方可信，必要时临时关闭安全软件，安装
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
+    <div class="panel-heading"><h5>SSR 的协议和混淆组合如何选择最适合的？</h5></div>
     <div class="panel-body">
-        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的 QUIC 模式相比 TCP 有哪些优势？</h5></div>
-    <div class="panel-body">
-        QUIC 协议基于 UDP，可减少握手延迟并在高丢包环境下保持较好体验。Hysteria2 对 QUIC 进行了优化，支持自适应拥塞控制与加密，能在移动网络中比 TCP 拥有更快的响应速度。<hr />    </div>
+        选择模拟 HTTPS 或 HTTP 的混淆方式，再搭配 AEAD 或协议插件，可以隐藏流量特征并提高抗封锁能力。不同网络环境需测试，选择最稳定和可靠的组合。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 如何手动导入节点？</h5></div>
@@ -349,24 +344,14 @@ A4：确保下载来源官方可信，必要时临时关闭安全软件，安装
         SSR 节点通常以“ssr://”链接形式提供。用户可在客户端中点击“添加节点”或“导入链接”，粘贴该字符串后保存即可。程序会自动解析服务器地址、端口、加密方式等参数。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLess 为什么被认为是未来趋势？</h5></div>
+    <div class="panel-heading"><h5>如何配置 Sing-box 使用 DoH 加密 DNS？</h5></div>
     <div class="panel-body">
-        VLess 去掉了内置加密层，改为依赖外部 TLS 进行安全通信，这使其更轻量化且更灵活。它能与 Hysteria、Reality 等现代传输方式结合使用，适应性更强，是取代 Vmess 的新标准。<hr />    </div>
+        在 dns 模块中添加类型为 doh 的上游，如 `https://1.1.1.1/dns-query`，并指定 bootstrap 地址。启用加密 DNS 可防止 DNS 泄露并加快国际解析速度，提高整体隐私保护。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议和混淆组合如何选择最适合的？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
     <div class="panel-body">
-        选择模拟 HTTPS 或 HTTP 的混淆方式，再搭配 AEAD 或协议插件，可以隐藏流量特征并提高抗封锁能力。不同网络环境需测试，选择最稳定和可靠的组合。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Vmess 节点配置时常见错误有哪些？</h5></div>
-    <div class="panel-body">
-        常见错误包括端口号不匹配、UUID 错误、TLS 设置不正确或传输类型配置错误。这些都会导致连接失败。检查服务器配置与客户端参数一致性是解决问题的关键。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 与 Shadowrocket 有什么区别？</h5></div>
-    <div class="panel-body">
-        两者都是 iOS 上的代理工具。Shadowrocket 功能更全面、更新更频繁，而 Surfboard 以轻量和快速见长。若只需简单分流与节点切换，Surfboard 足以满足日常使用。<hr />    </div>
+        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
@@ -379,9 +364,24 @@ A4：确保下载来源官方可信，必要时临时关闭安全软件，安装
         Clash Premium 是增强版，支持更多功能如 TUN 模式、本地 DNS 解析、脚本规则和自定义代理链。它能实现更细致的流量控制和兼容更多协议，适合对网络有高级需求的用户使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何配置 Sing-box 使用 DoH 加密 DNS？</h5></div>
+    <div class="panel-heading"><h5>VLess 为什么被认为是未来趋势？</h5></div>
     <div class="panel-body">
-        在 dns 模块中添加类型为 doh 的上游，如 `https://1.1.1.1/dns-query`，并指定 bootstrap 地址。启用加密 DNS 可防止 DNS 泄露并加快国际解析速度，提高整体隐私保护。    </div>
+        VLess 去掉了内置加密层，改为依赖外部 TLS 进行安全通信，这使其更轻量化且更灵活。它能与 Hysteria、Reality 等现代传输方式结合使用，适应性更强，是取代 Vmess 的新标准。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Vmess 节点配置时常见错误有哪些？</h5></div>
+    <div class="panel-body">
+        常见错误包括端口号不匹配、UUID 错误、TLS 设置不正确或传输类型配置错误。这些都会导致连接失败。检查服务器配置与客户端参数一致性是解决问题的关键。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 与 Shadowrocket 有什么区别？</h5></div>
+    <div class="panel-body">
+        两者都是 iOS 上的代理工具。Shadowrocket 功能更全面、更新更频繁，而 Surfboard 以轻量和快速见长。若只需简单分流与节点切换，Surfboard 足以满足日常使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的 QUIC 模式相比 TCP 有哪些优势？</h5></div>
+    <div class="panel-body">
+        QUIC 协议基于 UDP，可减少握手延迟并在高丢包环境下保持较好体验。Hysteria2 对 QUIC 进行了优化，支持自适应拥塞控制与加密，能在移动网络中比 TCP 拥有更快的响应速度。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -429,16 +429,16 @@ A4：确保下载来源官方可信，必要时临时关闭安全软件，安装
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-20-node-share.htm" title="8月20日→21.5M/S|2025年最新免费节点Sscap4订阅链接地址">8月20日→21.5M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-3.htm" title="8月3日→21.8M/S|2025年最新免费节点Sscap4订阅链接地址">8月3日→21.8M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-node-subscribe.htm" title="8月6日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址">8月6日→21.1M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-12-node-share.htm" title="8月12日→19.2M/S|2025年最新免费节点Sscap4订阅链接地址">8月12日→19.2M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-23-node-share-links.htm" title="7月23日→21.5M/S|2025年最新免费节点Sscap4订阅链接地址">7月23日→21.5M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-1.htm" title="8月1日→22M/S|2025年最新免费节点Sscap4订阅链接地址">8月1日→22M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-free-node-subscribe-links.htm" title="7月27日→21M/S|2025年最新免费节点Sscap4订阅链接地址">7月27日→21M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-free-high-speed-nodes.htm" title="7月21日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址">7月21日→22.1M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-10-node-share.htm" title="8月10日→22.8M/S|2025年最新免费节点Sscap4订阅链接地址">8月10日→22.8M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-21.htm" title="8月21日→20.8M/S|2025年最新免费节点Sscap4订阅链接地址">8月21日→20.8M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-19.htm" title="8月19日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址">8月19日→19.6M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-8-free-node-subscribe.htm" title="8月8日→18.1M/S|2025年最新免费节点Sscap4订阅链接地址">8月8日→18.1M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-node-share.htm" title="8月12日→19.2M/S|2025年最新免费节点Sscap4订阅链接地址">8月12日→19.2M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-23.htm" title="8月23日→19.1M/S|2025年最新免费节点Sscap4订阅链接地址">8月23日→19.1M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-15.htm" title="8月15日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址">8月15日→20.5M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-14-node-share.htm" title="8月14日→22.2M/S|2025年最新免费节点Sscap4订阅链接地址">8月14日→22.2M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-25.htm" title="8月25日→20.3M/S|2025年最新免费节点Sscap4订阅链接地址">8月25日→20.3M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-node-share.htm" title="8月16日→21.5M/S|2025年最新免费节点Sscap4订阅链接地址">8月16日→21.5M/S|2025年最新免费节点Sscap4订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -450,10 +450,10 @@ A4：确保下载来源官方可信，必要时临时关闭安全软件，安装
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
